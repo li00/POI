@@ -36,6 +36,8 @@ public class POIExcel {
         row.createCell(5).setCellValue("入职日期");
 
         List<Employee> list = DBCnn.getEmployee();
+        //释放资源
+        DBCnn.releace();
         for (int i=1;i<list.size()+1;i++){
             Row rows = sheet.createRow(i);
             Employee employee = list.get(i-1);
